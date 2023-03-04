@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title> swiggy cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+<style>
+    *{
+      margin:0;
+      padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width:90%;
+    margin:auto;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .col{
+      width:33.3%;
+    padding: 20px;
+    min-height: 550px;
+    }
+    .col-card{
+    padding: 20px;
+     cursor:pointer;
+     font-family: 'Roboto', sans-serif;
+    }
+    .col-card:hover{
+  border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
+    img{
+    width:100%;
+    }
+    h2{
+      color:#000;
+      padding: 10px 0;
+      font-size: 22px;
+    }
+     .one{
+     color:gray;
+     font-size: 18px;
+     }
+    .flexing p{
+      font-size: 17px;
+     }
+
+.btns{
+  background-color: green;
+  color:#fff;
+  width:50px;
+  padding: 3px;
+ text-decoration:none;
+}
+.flexing{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+ p{
+  font-size: 20px;
+}
+.quick{
+  border-top: solid 1px rgb(214, 204, 204);
+   color:blue;
+   text-align: center;
+   padding: 10px 0;
+   display:none;
+   font-size: 18px;
+}
+
+.col-card:hover .quick{
+  display:block !important;
+}
+.offers{
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  color:brown;
+  border-top:solid 1px  rgb(214, 204, 204);
+}
+h3:hover{
+    color:grey;
+   }
+
+</style>
+</head>
+<body>
+      <div class="container">
+
+      </div>
+<script>
+  
+  let foodlist=[
+    {
+     id:1,
+     name:"Nila Sweets & Bakery",
+     cusine:"Desserts, Chinese",
+     rating:3.8,
+     service:"1 hrs",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Offers_yqoiuk",
+
+},
+    {
+     id:2,
+     name:"Nila Family Restaurant ",
+     cusine:"Desserts, Chinese ",
+     rating:3.8,
+     service:"4 hrs",
+     amount:"Rs.350",
+     offer:"FREE DELIVERY",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/TopRated_kyu7dk",
+    },
+    {
+     id:3,
+     name:"Hanif Kitchen ",
+     cusine:"North Indian ",
+     rating:3.2,
+     service:"1.30 hrs",
+     amount:"Rs.450",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/SuperFastDelivery_lmh0wh",
+    },
+    {
+     id:4,
+     name:"American Bakery And Cafe ",
+     cusine:"Chinese, Burgers ",
+     rating:3.7,
+     service:"30 min",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Biriyani_bohvze",
+    },
+    {
+     id:5,
+     name:" Carnival Bakery",
+     cusine:"Pizzas, Fast Food ",
+     rating:4.2,
+     service:"25 min",
+     amount:"Rs.300",
+     offer:"FREE DELIVERY",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NorthIndian_u554zm",
+    },
+    {
+     id:6,
+     name:"Al Mashi Restaurant ",
+     cusine:" Indian",
+     rating:3.1,
+     service:"20 min",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/SouthIndian_a5ivgy",
+    },
+    {
+     id:7,
+     name:"Hot N Chill ",
+     cusine:" Indian",
+     rating:3.5,
+     service:"1 hour",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+    imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ii6enfkxe6uwbvw3qiar",
+    },
+    {
+     id:8,
+     name:" Lockdown Biryani Hut Family",
+     cusine:" Chinese, North Indian",
+     rating:3.8,
+     service:"3 hrs",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+     imgurl:" https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/wa7qgwb6fmezpkwsubju ",
+    },
+    {
+     id:9,
+     name:" Chick Blast",
+     cusine:"Pastas, Chinese ",
+     rating:3.4,
+     service:"50 min",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+     imgurl:" https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/opcjinwvhdde2yts7iez ",
+    },
+    {
+     id:10,
+     name:"MS Dhoni Fan Mini Restuarant ",
+     cusine:"South Indian, Indian ",
+     rating:3.1,
+     service:"2 hrs",
+     amount:"Rs.550",
+     offer:"FREE DELIVERY",
+     imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/cw13yba11vdsshxqoph5",
+    },
+    {
+     id:11,
+     name:"Greensland Restaurant ",
+     cusine:"Chinese, North Indian ",
+     rating:3.9,
+     service:"20 min",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+     imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/hrzzefyekcewtpemua7j ",
+    },
+    {
+     id:12,
+     name:" Sri Madhuram Veg Restaurant",
+     cusine:"Sweets, Beverages ",
+     rating:4.2,
+     service:"40 min",
+     amount:"Rs.550",
+     offer:"FREE DELIVERY",
+     imgurl:" https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vsont2fdjveibxuqtdff ",
+    },
+    {
+     id:13,
+     name:" Ibaco",
+     cusine:" Ice Cream, Desserts",
+     rating:4.4,
+     service:"1 hour",
+     amount:"Rs.250",
+     offer:"50% off up to ₹80 | Use code WELCOME50",
+     imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/50a780c44b9c89b50888d6d23831f30e",
+    },
+    {
+     id:14,
+     name:"Anjuthoon The Nikkah Biryani ",
+     cusine:"Chinese, North Indian ",
+     rating:3.5,
+     service:" 5 hrs",
+     amount:"Rs.250",
+     offer:"FREE DELIVERY",
+     imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/jcpoga2bukkhk4nmmlxq ",
+    },
+    {
+     id:15,
+     name:"Chilly Restaurant ",
+     cusine:" Chinese, North Indian",
+     rating:4.0,
+     service:"3 hrs",
+     amount:"Rs.450",
+     offer:"FREE DELIVERY",
+     imgurl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/fdf564e0081566e287cfa59622266b1a",
+    }
+  
+
+  ]
+
+     let cont=document.querySelector(".container");
+       let cards=document.createElement("div");
+        cards.classList.add("row");
+         cont.appendChild(cards);
+     
+         
+    foodlist.forEach(function(e){
+      let div=document.createElement("div");
+      div.classList.add("col");
+      cards.appendChild(div);
+
+      let div2=document.createElement("div");
+      div2.classList.add("col-card");
+      div.appendChild(div2);
+
+      let img=document.createElement("img");
+       img.src=e.imgurl;
+       div2.appendChild(img);
+
+       let head=document.createElement("h2");
+      head.innerHTML=e.name;
+      div2.appendChild(head);
+
+      
+      let para=document.createElement("p");
+      para.classList.add("one");
+      para.innerHTML=e.cusine;
+      div2.appendChild(para);
+ 
+      let div3=document.createElement("div");
+      div3.classList.add("flexing");
+      div2.appendChild(div3);
+    
+      let para2=document.createElement("a");
+      para2.classList.add("btns");
+      para2.setAttribute("href",'#');
+      para2.innerHTML=`<iconify-icon inline icon="ic:outline-star" style="color: white;" rotate="180deg" flip="horizontal,vertical"></iconify-icon>${e.rating}`;
+      div3.appendChild(para2);
+
+      let para3=document.createElement("p");
+      para3.innerHTML=e.service;
+      div3.appendChild(para3);
+
+      let para4=document.createElement("p");
+      para4.innerHTML=e.amount;
+      div3.appendChild(para4);
+      
+      let head3=document.createElement("h4");
+      head3.classList.add("offers");
+      head3.innerHTML=`<iconify-icon inline icon="bxs:offer" style="color: brown;" rotate="180deg" flip="horizontal,vertical"></iconify-icon> ${e.offer}`;
+      div2.appendChild(head3);
+
+      let head2=document.createElement("h3");
+      head2.classList.add("quick");
+      head2.innerText="QUICK VIEW";
+      div2.appendChild(head2);
+
+     
+
+
+
+
+    });
+
+    console.log(cont);
+     
+
+
+
+
+    </script>
+
+</body>
+
+</html>
